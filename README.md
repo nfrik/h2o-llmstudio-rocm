@@ -1,4 +1,9 @@
 Unofficial work in progress version of H2O LLM studio that launches on ROCM GPUs (MI100). There are some issues that need to be fixed before it can be used for full fine-tuning.
+Server starts normally and even training job can be initiated but:
+
+1. GPU statistics needs to be implemented (namely GPUtil ported for ROCM)
+2. Some models throw tensor reshaping errors
+3. Small 1B models have zero loss, that is unusual and need to be debugged
 
 <p align="center"><img src="app_utils/static/llm-studio-logo-light.png#gh-dark-mode-only"></p>
 <p align="center"><img src="app_utils/static/llm-studio-logo.png#gh-light-mode-only"></p>
