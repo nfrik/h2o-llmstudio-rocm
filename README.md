@@ -1,3 +1,5 @@
+Unofficial work in progress version of H2O LLM studio that launches on ROCM GPUs (MI100). There are some issues that need to be fixed before it can be used for full fine-tuning.
+
 <p align="center"><img src="app_utils/static/llm-studio-logo-light.png#gh-dark-mode-only"></p>
 <p align="center"><img src="app_utils/static/llm-studio-logo.png#gh-light-mode-only"></p>
 
