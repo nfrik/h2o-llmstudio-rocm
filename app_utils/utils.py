@@ -1828,25 +1828,34 @@ def remove_temp_files(q: Q):
 
 def get_gpu_usage():
     usage = 0.0
-    all_gpus = GPUtil.getGPUs()
+    all_gpus = [0.2,0.22]# GPUtil.getGPUs()
     for gpu in all_gpus:
-        usage += gpu.load
+        usage += 0.2#gpu.load
 
     usage /= len(all_gpus)
     return usage * 100
 
 
+
 def get_single_gpu_usage(sig_figs=1, highlight=None):
-    all_gpus = GPUtil.getGPUs()
+    all_gpus = [0.2,0.22]#GPUtil.getGPUs()
     items = []
     for i, gpu in enumerate(all_gpus):
-        gpu_load = f"{round(gpu.load * 100, sig_figs)}%"
+        #gpu_load = f"{round(gpu.load * 100, sig_figs)}%"
+        #memory_used = get_size_str(
+        #    gpu.memoryUsed, sig_figs=1, input_unit="MB", output_unit="GB"
+        #)
+        #memory_total = get_size_str(
+        #    gpu.memoryTotal, sig_figs=1, input_unit="MB", output_unit="GB"
+        #)
+        gpu_load = f"{round(0.22 * 100, sig_figs)}%"
         memory_used = get_size_str(
-            gpu.memoryUsed, sig_figs=1, input_unit="MB", output_unit="GB"
+            1222, sig_figs=1, input_unit="MB", output_unit="GB"
         )
         memory_total = get_size_str(
-            gpu.memoryTotal, sig_figs=1, input_unit="MB", output_unit="GB"
+            32100, sig_figs=1, input_unit="MB", output_unit="GB"
         )
+
 
         if highlight is not None:
             gpu_load = f"**<span style='color:{highlight}'>{gpu_load}</span>**"
@@ -1854,10 +1863,15 @@ def get_single_gpu_usage(sig_figs=1, highlight=None):
             memory_total = f"**<span style='color:{highlight}'>{memory_total}</span>**"
 
         items.append(
-            ui.text(
-                f"GPU #{i + 1} - current utilization: {gpu_load} - "
-                f"VRAM usage: {memory_used} / {memory_total} - {gpu.name}"
-            )
+#            ui.text(
+#                f"GPU #{i + 1} - current utilization: {gpu_load} - "
+#                f"VRAM usage: {memory_used} / {memory_total} - {gpu.name}"
+#            )
+             ui.text(
+                 f"GPU #{i + 1} - current utilization: {gpu_load} - "
+                 f"VRAM usage: {memory_used} / {memory_total} - {i}"
+             )
+
         )
     return items
 
